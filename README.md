@@ -5,9 +5,9 @@ that works directly on top of a standard HTML <video> element.
 It requires support of HTML5 Video with Media Sources Extensions for playback. Also player relies on server-side websocket 
 proxy for retransmitting RTSP streams to browser.
 
-## Live test stream
+## Test
 
-Link to server running with html_rtsp_player and test page http://localhost:9000/
+Running server html_rtsp_player and test page http://localhost:9000/
 
 Browser support: 
 
@@ -23,12 +23,15 @@ Browser support:
 ##Prerequisite
 
 jdk 1.8
+
 maven 3.3.9
 
 ## Install
 
 git clone https://github.com/tuzhh/html_rtsp_player.git
+
 cd html_rtsp_player
+
 mvn clean compile install
 
 ## Usage
@@ -42,4 +45,5 @@ java -jar target/html-rtsp-player-0.0.1-SNAPSHOT.jar
 http://localhost:9000/
 
 Have any suggestions for improving work of our player? 
+
 Feel free to leave comments or ideas to tuzhihai@gmail.com
