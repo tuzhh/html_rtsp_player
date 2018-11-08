@@ -9,7 +9,7 @@ proxy for retransmitting RTSP streams to browser.
 
 Running server html_rtsp_player and test page http://localhost:9000/
 
-Browser support: 
+## Browser support
 
 * Firefox v.42+
 * Chrome v.23+
@@ -20,7 +20,7 @@ Browser support:
 * IE Mobile v.11+
 
 
-##Prerequisite
+## Prerequisite
 
 jdk 1.8
 
