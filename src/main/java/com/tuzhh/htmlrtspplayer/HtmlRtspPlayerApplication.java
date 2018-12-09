@@ -12,18 +12,13 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 public class HtmlRtspPlayerApplication implements WebSocketConfigurer {
 
     @Bean
-    public WebSockerServerRtspHandler handlerRtsp() {
-        return new WebSockerServerRtspHandler();
-    }
-    @Bean
-    public WebSockerServerRtpHandler handlerRtp() {
-        return new WebSockerServerRtpHandler();
+    public HtmlRtspPlayerWebSockerServer htmlRtspPlayerWebSockerServer() {
+        return new HtmlRtspPlayerWebSockerServer();
     }
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(handlerRtsp(), "/player/rtsp").setAllowedOrigins("*").addInterceptors(new WebSocketHandshakeInterceptor());
-        registry.addHandler(handlerRtp(), "/player/rtp").setAllowedOrigins("*").addInterceptors(new WebSocketHandshakeInterceptor());
+        registry.addHandler(htmlRtspPlayerWebSockerServer(), "/player").setAllowedOrigins("*").addInterceptors(new WebSocketHandshakeInterceptor());
     }
 
     public static void main(String[] args) {

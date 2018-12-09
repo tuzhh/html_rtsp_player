@@ -276,7 +276,7 @@ public class RemoteRtspService {
                                 hsmpRtspMsg.remove(cseq);
                             }
 
-                            if(lines.get(0).toLowerCase().matches(".+ moved([ ]+)temporarily.+")) {
+                            if(lines.get(0).toLowerCase().matches(".+ moved([ ]+)temporarily([ ].*)*")) {
                                 String redirectUrl = hsmpVal.get("Location".toLowerCase());
                                 if(!StringUtils.isEmpty(redirectUrl)) {
                                     redirectUrl = redirectUrl.trim();

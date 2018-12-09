@@ -8961,10 +8961,6 @@ class WSPProtocol {
     }
 
     static parse(data) {
-        if(typeof(data) != "string") {
-            console.log(data);
-            return null;
-        }
         let payIdx = data.indexOf('\r\n\r\n');
         let lines = data.substr(0, payIdx).split('\r\n');
         let hdr = lines.shift().match(new RegExp(`${WSPProtocol.PROTO}/${WSPProtocol.V1_1}\\s+(\\d+)\\s+(.+)`));
@@ -9047,7 +9043,7 @@ class WebSocketProxy {
 
     initDataChannel(channel_id) {
         return new Promise((resolve, reject)=>{
-            this.dataChannel = new WebSocket(this.url + "/rtp");
+            this.dataChannel = new WebSocket(this.url, WebSocketProxy.CHN_DATA);
             this.dataChannel.binaryType = 'arraybuffer';
             this.dataChannel.onopen = ()=>{
                 let msg = this.builder.build(WSPProtocol.CMD_JOIN, {
@@ -9085,7 +9081,7 @@ class WebSocketProxy {
     connect() {
         this.encryptionKey = null;
         return new Promise((resolve, reject)=>{
-            this.ctrlChannel = new WebSocket(this.url + "/rtsp");
+            this.ctrlChannel = new WebSocket(this.url, WebSocketProxy.CHN_CONTROL);
 
             this.connected = false;
 
